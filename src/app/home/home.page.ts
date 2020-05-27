@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private srvAuth: AuthService, private router: Router) {}
+
+  onLogout() {
+    console.log('Logout button clicked');
+    this.srvAuth.logoutUser();
+  }
 
 }
